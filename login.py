@@ -35,15 +35,57 @@ login_button.pack(pady = 10)
 username=user_.get()
 password=pass_.get()
 
+#validation of user
+
 def validation():
     if username in login.key():
         if password==login["username"]:
-            pass
+            Button(f1, text='login', command=lambda:raise_frame(disp_timetable)).pack()
+            Label(f1, text='FRAME 1').pack()
         else:
             messagebox.showinfo("not a valid password.")
 
 
 validation()
+
+#frame collection and accessing
+
+from tkinter import *
+def raise_frame(frame):
+    frame.tkraise()
+
+root = Tk()
+
+log = Frame(root)
+disp_timetable = Frame(root)
+modified_timetable = Frame(root)
+
+#frame switching
+from tkinter import *
+def raise_frame(frame):
+    frame.tkraise()
+
+root = Tk()
+
+log = Frame(root)
+disp_timetable = Frame(root)
+modified_timetable = Frame(root)
+
+
+"""for frame in (log,disp_timetable,modified_timetable):
+    frame.grid(row=0, column=0, sticky='news')
+
+
+Label(f2, text='FRAME 2').pack()
+Button(f2, text='Go to frame 3', command=lambda:raise_frame(f3)).pack()
+
+Label(f3, text='FRAME 3').pack(side='left')
+Button(f3, text='Go to frame 4', command=lambda:raise_frame(f4)).pack(side='left')
+
+"""
+
+raise_frame(f1)
+root.mainloop()
 
 
 window.mainloop()
